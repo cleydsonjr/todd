@@ -1,0 +1,19 @@
+.text-blue {
+	color: #287187;
+	/*color: #946F94;*/
+}
+
+.text-green {
+	color: #448744 !important;
+}
+
+.logo > h1 {
+	font-family: 'Orbitron', sans-serif;
+	margin-bottom: 0;
+	font-size: 83px;
+}
+
+.logo > h3 {
+	margin-top: 0;
+	color: #878787;
+}
