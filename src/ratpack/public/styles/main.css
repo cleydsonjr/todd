@@ -1,19 +1,42 @@
 .text-blue {
-	color: #287187;
-	/*color: #946F94;*/
+    color: #287187;
+    /*color: #946F94;*/
 }
-
 .text-green {
-	color: #448744 !important;
+    color: #448744 !important;
 }
 
-.logo > h1 {
-	font-family: 'Orbitron', sans-serif;
-	margin-bottom: 0;
-	font-size: 83px;
+.logo {
+    padding: 15px;
 }
 
-.logo > h3 {
-	margin-top: 0;
-	color: #878787;
+.logo .title {
+    height: 100px;
+    border-right: 1px dashed #5baa5b;
+}
+
+.logo h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 83px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+.logo h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #9b9b9b;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.logo .subtitle {
+    height: 100px;
+    display: table;
+}
+
+.readOnly {
+    /*background-color: #dddddd;*/
 }

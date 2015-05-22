@@ -3,23 +3,145 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Todd - Online TDD</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-    <link href='../../ratpack/public/styles/main.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Orbitron" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css" type='text/css'>
+    <link rel="stylesheet" href="styles/main.css" type='text/css'>
 </head>
 <body>
-<div class="container">
-    <div class="jumbotron">
-        <div class="row">
+<div class="container-fluid">
+    <div class="row logo header-panel">
+        <div class="col-md-6 col-sm-12 text-right title">
+            <h1 class="text-green">T<span class="text-blue">o</span>dd</h1>
+        </div>
+        <div class="col-md-6 col-sm-12 text-left subtitle">
+            <h3>
+                stands for <br/>
+                <span class="text-blue">Online</span> <span class="text-green">Test Driven Development</span>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="well">
+                    <a class="btn btn-sm btn-primary">Add Test Case</a>
 
-            <div class="col-md-12 text-center logo">
-                <h1 class="text-green">T<span class="text-blue">o</span>dd</h1>
+                    <div role="tabpanel">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Test Case 1</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <textarea class="form-control" name="" id="test" rows="15">
+package com.wordpress.technologyconversations.tddtest;
 
-                <h3>stands for <span class="text-blue">Online</span> <span class="text-green">TDD</span></h3>
+import org.junit.Test;
+import com.wordpress.technologyconversations.tdd.StringCalculator;
+
+public class StringCalculatorTest {
+    @Test(expected = RuntimeException.class)
+    public final void whenMoreThan2NumbersAreUsedThenExceptionIsThrown() {
+        StringCalculator.add("1,2,3");
+    }
+    @Test
+    public final void when2NumbersAreUsedThenNoExceptionIsThrown() {
+        StringCalculator.add("1,2");
+        Assert.assertTrue(true);
+    }
+    @Test(expected = RuntimeException.class)
+    public final void whenNonNumberIsUsedThenExceptionIsThrown() {
+        StringCalculator.add("1,X");
+    }
+}
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="well">
+                    <a class="btn btn-sm btn-primary">Add Class</a>
+
+                    <div role="tabpanel">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="#class1" aria-controls="home" role="tab" data-toggle="tab">First Class</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="class1">
+                                <textarea class="form-control" name="" id="code" rows="15">
+public class StringCalculator1 {
+    public static final void add(final String numbers) {
+        String[] numbersArray = numbers.split(",");
+        if (numbersArray.length > 2) {
+            throw new RuntimeException("Up to 2 numbers separated by comma (,) are allowed");
+        } else {
+            for (String number : numbersArray) {
+                Integer.parseInt(number); // If it is not a number, parseInt will throw an exception
+            }
+        }
+    }
+}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <footer>
+        <iframe src="https://ghbtns.com/github-btn.html?user=cleydsonjr&repo=todd&type=star&count=true&size=large"
+                frameborder="0"
+                scrolling="0"
+                width="160px"
+                height="30px"
+                class="pull-right">
+        </iframe>
+    </footer>
 </div>
+
+
+<a href="https://github.com/cleydsonjr/todd">
+    <img style="position: absolute; top: 0; right: 0; border: 0;"
+         src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67"
+         alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png">
+</a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/groovy/groovy.min.js"></script>
+
+<script>
+    \$(function () {
+        \$.material.init();
+        var readOnlyLines = [0, 1, 10, 11];
+        CodeMirror.fromTextArea(document.getElementById("test"), {
+            mode: "groovy",
+            lineNumbers: true
+        });
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            mode: "groovy",
+            lineNumbers: true
+        });
+
+        editor.markText({line: 0, ch: 0}, {line: 1}, {readOnly: true, className: 'readOnly'});
+        editor.markText({line: 9}, {line: 11}, {readOnly: true, className: 'readOnly'});
+//
+//        editor.on('beforeChange', function (cm, change) {
+//            console.log(cm);
+//            if (~readOnlyLines.indexOf(change.from.line)) {
+//                change.cancel();
+//            }
+//        });
+    });
+</script>
 </body>
 </html>
