@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css" type="text/css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Orbitron" type="text/css">
+    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Vollkorn' type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.css" type='text/css'>
-    <link rel="stylesheet" href="styles/main.css" type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/addon/fold/foldgutter.min.css" type='text/css'>
+    <link rel="stylesheet" href="../public/styles/main.css" type='text/css'>
 </head>
 <body>
 <div class="container-fluid">
@@ -118,18 +120,30 @@ public class StringCalculator1 {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/codemirror.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/mode/groovy/groovy.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/addon/selection/active-line.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/addon/edit/matchbrackets.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/addon/fold/foldcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/addon/fold/foldgutter.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/addon/fold/indent-fold.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.3.0/addon/fold/comment-fold.min.js"></script>
 
 <script>
-    \$(function () {
-        \$.material.init();
+    $(function () {
+        $.material.init();
         var readOnlyLines = [0, 1, 10, 11];
         CodeMirror.fromTextArea(document.getElementById("test"), {
             mode: "groovy",
-            lineNumbers: true
+            lineNumbers: true,
+            styleActiveLine: true,
+            matchBrackets: true
         });
         var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             mode: "groovy",
-            lineNumbers: true
+            lineNumbers: true,
+            styleActiveLine: true,
+            matchBrackets: true,
+            foldGutter: true,
+            gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
         });
 
         editor.markText({line: 0, ch: 0}, {line: 1}, {readOnly: true, className: 'readOnly'});
